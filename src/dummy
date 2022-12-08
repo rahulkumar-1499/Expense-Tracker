@@ -1,0 +1,33 @@
+Expenseform.js
+
+//method 1
+    // const [enteredTitle,setEnteredTitle]= useState('');
+    // const [enteredamount,setEnteredamount]= useState('');
+    // const [entereddate,setEntereddate]= useState('');
+   
+    //method 2
+    const [userInput,setUserInput]=useState({
+        enteredTitle:'',
+        enteredamount:'',
+        entereddate:''
+    })
+    const titlehandler=(event)=>{
+        // setUserInput({
+        //     ...userInput,                   
+        //     enteredTitle:event.target.value         //targetting the user input value
+        // })        
+        //key point: whenever current state depends on the previous state we should pass through an inner function
+        setUserInput((previousState)=>{
+            return ({...previousState,enteredTitle:event.target.value})
+        })                  
+    }
+
+    const amounthandler=(event)=>{
+        setUserInput((previousState)=>{
+            return ({...previousState,enteredamount:event.target.value})
+        })                       }
+    
+    const datehandler=(event)=>{
+        setUserInput((previousState)=>{
+            return ({...previousState,entereddate:event.target.value})
+        })                }
